@@ -72,7 +72,7 @@ async function rustc(): Promise<void> {
         core.setOutput("rustc", version.long);
         core.setOutput("rustc_hash", version.hash);
     } catch (e) {
-        core.warning(e);
+        core.warning(e as Error);
         core.setOutput("rustc", parseShort(stdout));
     }
 }
